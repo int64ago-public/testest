@@ -1,0 +1,630 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false; 
+    app.settings.asideDock = false;
+  ">
+    <!-- main -->
+    <div class="col">
+        <!-- main header -->
+
+        <!-- / main header -->
+        <div class="wrapper-md" ng-controller="">
+            <!-- stats -->
+            <div class="row  m-b m-l">
+                <div class="pull-left text-5x">
+                    <div class="btn-group m-l-xs ">
+
+                        <button class="btn btn-sm btn-default" ng-click="changeView('agendaDay')">今天</button>
+                        <button class="btn btn-sm btn-default" ng-click="changeView('agendaWeek')">昨天</button>
+                        <button class="btn btn-sm btn-default" ng-click="changeView('month')">最近7天</button>
+                        <button class="btn btn-sm btn-default" ng-click="changeView('month')">最近30天</button></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-signal fa-3x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="font-bold h3 text-left">骚扰拨打次数</div>
+                                    <div class="font-bold h3">1211225个</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-plane fa-3x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="font-bold h3 text-left">通话总时长</div>
+                                    <div class="font-bold h3">1000000秒</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa icon-ban fa-3x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="font-bold h3 text-left">骚扰号码个数</div>
+                                    <div class="font-bold h3">10000个</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row-fluid">
+                <div class="col-md-5" id="fangkeshu_map" style="height:300px;">
+
+                </div>
+                <div class="col-md-7" id="fangkeshu_pie" style="height:300px">
+
+                </div>
+
+            </div>
+
+            <div class="row ">
+                <div class="col-sm-12 col-md-12">
+                    <div class="wrapper-md ng-scope">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                骚扰电话列表
+                            </div>
+                            <div class="table-responsive">
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-xs-6"><div class="dataTables_length" id="DataTables_Table_1_length"><label>Show <select name="DataTables_Table_1_length" aria-controls="DataTables_Table_1" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-xs-6"><div id="DataTables_Table_1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" aria-controls="DataTables_Table_1"></label></div></div></div><table ui-jq="dataTable" ui-options="{
+          sAjaxSource: 'js/jquery/datatables/datatable.json',
+          aoColumns: [
+            { mData: 'number' },
+            { mData: 'callingCount' },
+            { mData: 'calledCount' },
+            { mData: 'calledNumber' },
+            { mData: 'inoutRatio' },
+            { mData: 'avgElasped' },
+            { mData: 'province' },
+            { mData: 'city' },
+            { mData: 'haosou_mark' },
+            { mData: 'haosou_amount' },
+            { mData: 'repeatRatio' }
+          ]
+        }" class="table table-striped m-b-none dataTable no-footer" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info" style="width: 990px;">
+                                    <thead>
+                                    <tr role="row"><th style="width: 163px;" class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending" aria-sort="ascending">Rendering engine</th><th style="width: 212px;" class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Browser</th><th style="width: 211px;" class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Platform(s)</th><th style="width: 112px;" class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Engine version</th><th style="width: 112px;" class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">CSS grade</th></tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">Gecko</td>
+                                        <td>Firefox 1.0</td>
+                                        <td>Win 98+ / OSX.2+</td>
+                                        <td>1.7</td>
+                                        <td>A</td>
+                                    </tr><tr role="row" class="even"><td class="sorting_1">Gecko</td><td>Firefox 1.5</td><td>Win 98+ / OSX.2+</td><td>1.8</td><td>A</td></tr><tr role="row" class="odd"><td class="sorting_1">Gecko</td><td>Firefox 2.0</td><td>Win 98+ / OSX.2+</td><td>1.8</td><td>A</td></tr><tr role="row" class="even"><td class="sorting_1">Gecko</td><td>Firefox 3.0</td><td>Win 2k+ / OSX.3+</td><td>1.9</td><td>A</td></tr><tr role="row" class="odd"><td class="sorting_1">Gecko</td><td>Camino 1.0</td><td>OSX.2+</td><td>1.8</td><td>A</td></tr><tr role="row" class="even"><td class="sorting_1">Gecko</td><td>Camino 1.5</td><td>OSX.3+</td><td>1.8</td><td>A</td></tr><tr role="row" class="odd"><td class="sorting_1">Gecko</td><td>Netscape 7.2</td><td>Win 95+ / Mac OS 8.6-9.2</td><td>1.7</td><td>A</td></tr><tr role="row" class="even"><td class="sorting_1">Gecko</td><td>Netscape Browser 8</td><td>Win 98SE+</td><td>1.7</td><td>A</td></tr><tr role="row" class="odd"><td class="sorting_1">Gecko</td><td>Netscape Navigator 9</td><td>Win 98+ / OSX.2+</td><td>1.8</td><td>A</td></tr><tr role="row" class="even"><td class="sorting_1">Gecko</td><td>Mozilla 1.0</td><td>Win 95+ / OSX.1+</td><td>1</td><td>A</td></tr></tbody>
+                                </table><div class="row"><div class="col-xs-6"><div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-xs-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="DataTables_Table_1" tabindex="0" id="DataTables_Table_1_previous"><a href="#">Previous</a></li><li class="paginate_button active" aria-controls="DataTables_Table_1" tabindex="0"><a href="#">1</a></li><li class="paginate_button " aria-controls="DataTables_Table_1" tabindex="0"><a href="#">2</a></li><li class="paginate_button " aria-controls="DataTables_Table_1" tabindex="0"><a href="#">3</a></li><li class="paginate_button " aria-controls="DataTables_Table_1" tabindex="0"><a href="#">4</a></li><li class="paginate_button " aria-controls="DataTables_Table_1" tabindex="0"><a href="#">5</a></li><li class="paginate_button " aria-controls="DataTables_Table_1" tabindex="0"><a href="#">6</a></li><li class="paginate_button next" aria-controls="DataTables_Table_1" tabindex="0" id="DataTables_Table_1_next"><a href="#">Next</a></li></ul></div></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- / main -->
+    <!-- right col -->
+    <!-- / right col -->
+</div>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="build/dist/echarts-all.js"></script>
+
+<script type="text/javascript">
+    // 路径配置
+    //地图
+    var myChart_fangkeshu_map = echarts.init(document.getElementById('fangkeshu_map'));
+    var option_fangkeshu_map = {
+        title : {
+            subtext: '主叫号码归属地占比',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item'
+        },
+        dataRange: {
+            min: 0,
+            max: 1000000,
+            orient:'horizontal',
+            x: 'center',
+            y: 'top',
+            text:['高','低']           // 文本，默认为数值文本
+        },
+        toolbox: {
+            show: false,
+            orient : 'vertical',
+            x: 'right',
+            y: 'center',
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        series : [
+            {
+                name: '号码归属地',
+                type: 'map',
+                mapType: 'china',
+                roam: false,
+                itemStyle:{
+                    normal:{label:{show:false}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+                    {name: '北京',value: 950401},
+                    {name: '天津',value: 200288},
+                    {name: '上海',value: 250300},
+                    {name: '重庆',value: 250405},
+                    {name: '河北',value: 250387},
+                    {name: '河南',value: 250278},
+                    {name: '云南',value: 200355},
+                    {name: '辽宁',value: 200399},
+                    {name: '黑龙江',value: 201023},
+                    {name: '湖南',value: 200488},
+                    {name: '安徽',value: 200553},
+                    {name: '山东',value: 200112},
+                    {name: '新疆',value: 200150},
+                    {name: '江苏',value: 574573},
+                    {name: '浙江',value: 201223},
+                    {name: '江西',value: 200078},
+                    {name: '湖北',value: 200442},
+                    {name: '广西',value: 200889},
+                    {name: '甘肃',value: 200785},
+                    {name: '山西',value: 200422},
+                    {name: '内蒙古',value: 200110},
+                    {name: '陕西',value: 200230},
+                    {name: '吉林',value: 156},
+                    {name: '福建',value: 200555},
+                    {name: '贵州',value: 200223},
+                    {name: '广东',value: 940922},
+                    {name: '青海',value: 200225},
+                    {name: '西藏',value: 200046},
+                    {name: '四川',value: 201426},
+                    {name: '宁夏',value: 200222},
+                    {name: '海南',value: 200336},
+                    {name: '台湾',value: 200023},
+                    {name: '香港',value: 200056},
+                    {name: '澳门',value: 200088}
+                ]
+            }
+        ]
+    };
+    myChart_fangkeshu_map.setOption(option_fangkeshu_map);
+    myChart_fangkeshu_map.hideLoading();
+    //############
+    var myChart_fangkeshu_pie = echarts.init(document.getElementById('fangkeshu_pie'),'macarons');
+
+    var option_fangkeshu_pie = {
+        title : {
+            text: '联通通话数据',
+            subtext: '饼图',
+            x:'center',
+            show:false
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            show:true,
+            orient: 'vertical', // 'vertical'
+            x: 'right', // 'center' | 'left' | {number},
+            y: 'top', // 'center' | 'bottom' | {number}
+            //backgroundColor: '',
+            borderColor: 'rgba(178,34,34,0.8)',
+            borderWidth: 0,
+            padding: 10,    // [5, 10, 15, 20]
+            itemGap: 20,
+            textStyle: {color: 'red'},
+            selected: {
+                '降水量' : false
+            },
+            data: [
+                {
+                    name:'广东',
+                    // icon : 'image://favicon.png',
+                    textStyle:{fontWeight:'bold', color:'auto'}
+                },
+                {
+                    name:'北京',
+                    // icon : 'image://favicon.png',
+                    textStyle:{fontWeight:'bold', color:'auto'}
+                },{
+                    name:'上海',
+                    //  icon : 'image://favicon.png',
+                    textStyle:{fontWeight:'bold', color:'auto'}
+                },{
+                    name:'江苏',
+                    // icon : 'image://favicon.png',
+                    textStyle:{fontWeight:'bold', color:'auto'}
+                },{
+                    name:'山东',
+                    // icon : 'image://favicon.png',
+                    textStyle:{fontWeight:'bold', color:'auto'}
+                },{
+                    name:'浙江',
+                    //icon : 'image://favicon.png',
+                    textStyle:{fontWeight:'bold', color:'auto'}
+                },{
+                    name:'河南',
+                    // icon : 'image://favicon.png',
+                    textStyle:{fontWeight:'bold', color:'auto'}
+                },{
+                    name:'河北',
+                    //  icon : 'image://favicon.png',
+                    textStyle:{fontWeight:'bold', color:'auto'}
+                },{
+                    name:'湖北',
+                    //   icon : 'image://favicon.png',
+                    textStyle:{fontWeight:'bold', color:'auto'}
+                },{
+                    name:'其他地区',
+                    //  icon : 'image://favicon.png',
+                    textStyle:{fontWeight:'bold', color:'auto'}
+                }
+            ]
+        },
+        calculable : false,
+        series : [
+            {
+                name:'访问来源',
+                type:'pie',
+                radius : '75%',
+                center: ['30%', '50%'],
+                /*  itemStyle:{
+                 normal:{
+                 label:{
+                 show: true,
+                 position:'outer'
+                 },
+                 labelLine : {
+                 show : true
+                 }
+                 }
+                 },*/
+
+                data:[
+                    /* {value: 9220, name:'广东',itemStyle:{
+                     normal:{
+                     label:{show:function () {
+                     if (value == 9220)
+                     { return false;}
+                     }()
+
+                     },
+                     labelLine:{show:function () {
+                     if (value == 9220)
+                     { return false;}
+                     }()
+
+                     }
+                     }
+
+                     }
+                     },*/
+
+                    {value: 9220, name:'广东'},
+                    {value: 6897, name:'北京'},
+                    {value:4084, name:'上海',itemStyle:{
+                        normal:{
+                            label:{show:false},
+                            labelLine:{show:false}
+
+                        }
+                    }
+                    },
+                    {value:3307, name:'江苏',itemStyle:{
+                        normal:{
+                            label:{show:false},
+                            labelLine:{show:false}
+
+                        }
+                    }},
+                    {value:2838, name:'山东',itemStyle:{
+                        normal:{
+                            label:{show:false},
+                            labelLine:{show:false}
+
+                        }
+                    }},
+                    {value:2210, name:'浙江',itemStyle:{
+                        normal:{
+                            label:{show:false},
+                            labelLine:{show:false}
+
+                        }
+                    }},
+                    {value:2066, name:'河南',itemStyle:{
+                        normal:{
+                            label:{show:false},
+                            labelLine:{show:false}
+
+                        }
+                    }},
+                    {value:1978, name:'河北',itemStyle:{
+                        normal:{
+                            label:{show:false},
+                            labelLine:{show:false}
+
+                        }
+                    }},
+                    {value:1837, name:'湖北',itemStyle:{
+                        normal:{
+                            label:{show:false},
+                            labelLine:{show:false}
+
+                        }
+                    }},
+                    {value:14980, name:'其他地区'}
+                ]
+            }
+        ]
+    };
+
+    myChart_fangkeshu_pie.setOption(option_fangkeshu_pie);
+    myChart_fangkeshu_pie.hideLoading();
+
+    //##########
+    var option_tonghuaqushi,myChart_tonghuaqushi="";
+    require(
+            [
+                'echarts',
+                'echarts/chart/pie', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                myChart_tonghuaqushi = ec.init(document.getElementById('tonghuaqushi'));
+                myChart_tonghuaqushi.showLoading({
+                    text:"正在努力读取数据中。。。"
+                });
+                option_tonghuaqushi = {
+                    title : {
+                        text: '通话趋势图',
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['外部链接','直接访问','搜素引擎']
+                    },
+                    toolbox: {
+                        show : false,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {show: true, type: ['line', 'bar']},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : false,
+                            data : ['0','1','2','3','4','5','6','7','8','9','10','11','12']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel : {
+                                formatter: '{value} °C'
+                            }
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'最高气温',
+                            type:'line',
+                            data:[11, 11, 15, 13, 12, 13, 10],
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name: '平均值'}
+                                ]
+                            }
+                        },
+                        {
+                            name:'最低气温',
+                            type:'line',
+                            data:[1, -2, 2, 5, 3, 2, 0],
+                            markPoint : {
+                                data : [
+                                    {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '平均值'}
+                                ]
+                            }
+                        }
+                    ]
+                };
+
+                // 为echarts对象加载数据
+                myChart_tonghuaqushi.setOption(option_tonghuaqushi);
+                myChart_tonghuaqushi.hideLoading();
+            }
+    );
+
+
+    //##########
+    var option_liuliangqushi,myChart_liuliangqushi="";
+    require(
+            [
+                'echarts',
+                'echarts/chart/pie', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                myChart_liuliangqushi = ec.init(document.getElementById('liuliangqushi'));
+                myChart_liuliangqushi.showLoading({
+                    text:"正在努力读取数据中。。。"
+                });
+                option_liuliangqushi = {
+                    title : {
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:[]
+                    },
+                    grid:{
+                        y:"10%",
+                        y2:"15%",
+                        x:"15%",
+                        x2:"15%"
+                    },
+
+                    toolbox: {
+                        show : false,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {show: true, type: ['line', 'bar']},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : false,
+                            data : ['0','1','2','3','4','5','6','7','8','9','10','11','12']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel : {
+                                formatter: '{value} °C'
+                            }
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'最低气温',
+                            type:'line',
+                            data:[1, -2, 2, 5, 3, 2, 0,3,5,7],
+
+                        }
+                    ]
+                };
+                // 为echarts对象加载数据
+                myChart_liuliangqushi.setOption(option_liuliangqushi);
+                myChart_liuliangqushi.hideLoading();
+            }
+    );
+
+    //##########
+    var option_liuliangleixing,myChart_liuliangleixing="";
+    require(
+            [
+                'echarts',
+                'echarts/chart/pie', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                myChart_liuliangleixing = ec.init(document.getElementById('liuliangleixing'));
+                myChart_liuliangleixing.showLoading({
+                    text:"正在努力读取数据中。。。"
+                });
+                option_liuliangleixing = {
+                    title : {
+
+                    },
+
+                    legend: {
+                        orient : 'vertical',
+                        x : 'right',
+                        data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+                    },
+                    tooltip:{
+                        show:false
+                    },
+                    toolbox: {
+                        show : false,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {
+                                show: true,
+                                type: ['pie', 'funnel'],
+                                option: {
+                                    funnel: {
+                                        x: '25%',
+                                        width: '50%',
+                                        funnelAlign: 'left',
+                                        max: 1548
+                                    }
+                                }
+                            },
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    series : [
+                        {
+                            name:'pie',
+                            type:'pie',
+                            radius : [0,'50%'],
+                            center: ['30%', '40%'],
+                            legendHoverLink:false,
+                            data:[
+                                {value:335, name:'直接访问'},
+                                {value:310, name:'邮件营销'},
+                                {value:234, name:'联盟广告'},
+                                {value:135, name:'视频广告'},
+                                {value:1548, name:'搜索引擎'}
+                            ]
+                        }
+                    ]
+                };
+                // 为echarts对象加载数据
+                myChart_liuliangleixing.setOption(option_liuliangleixing);
+                myChart_liuliangleixing.hideLoading();
+            }
+    );
+
+</script>

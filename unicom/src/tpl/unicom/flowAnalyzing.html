@@ -1,0 +1,125 @@
+
+<div class="wrapper-md">
+    <div class="row">
+
+            <div ng-controller="TabsDemoCtrl">
+
+
+                <!--<tabset class="tab-container">-->
+                    <!--<tab heading="Static title">Static content</tab>-->
+                    <!--<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">-->
+                        <!--{{tab.content}}-->
+                    <!--</tab>-->
+                    <!--<tab>-->
+                        <!--<tab-heading>-->
+                            <!--<i class="glyphicon glyphicon-bell"></i> Alert!-->
+                        <!--</tab-heading>-->
+                        <!--I've got an HTML heading, and a select callback. Pretty cool!-->
+                    <!--</tab>-->
+                <!--</tabset>-->
+
+                <!--<tabset vertical="true" type="pills" class="tab-container">-->
+                    <!--<tab heading="Vertical 1">Vertical content 1</tab>-->
+                    <!--<tab heading="Vertical 2">Vertical content 2</tab>-->
+                <!--</tabset>-->
+
+                <tabset justified="false" class="tab-content">
+                    <tab heading="Justified">
+                        <div class="row" >
+                            <div class="col-sm-12 col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading font-bold">通话类型占比</div>
+                                    <div class="" id="tonghualeixing" style="height:300px;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="SJ">sss</tab>
+                    <tab heading="Long Justified">Long Labeled Justified content</tab>
+                </tabset>
+            </div>
+        <!-- / tab -->
+
+
+
+        <!-- timepicker -->
+
+        <!-- dropdown-menu -->
+        <!-- breadcrumb -->
+        <!-- / label and badge -->
+    </div>
+
+    </div>
+<script src="https://dn-cdnjscn.qbox.me/ajax/libs/echarts/2.2.1/echarts.js"></script>
+<script src="https://dn-cdnjscn.qbox.me/ajax/libs/echarts/2.2.1/echarts-all.js"></script>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths: {
+            echarts: './build/dist'
+        }
+    });
+    // 使用
+    require(
+            [
+                'echarts',
+                'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart_tonghualeixing = ec.init(document.getElementById('tonghualeixing'));
+
+                var option_tonghualeixing = {
+                    title: {
+                        text:'通话趋势'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    calculable:true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap:false,
+                            data :['2015/02/26','2015/02/27','2015/02/28','2015/03/01','2015/03/02','2015/03/03','2015/03/04','2015/03/05','2015/03/06','2015/03/07','2015/03/08','2015/03/09','2015/03/10','2015/03/11','2015/03/12','2015/03/13','2015/03/14','2015/03/15','2015/03/16','2015/03/17','2015/03/18','2015/03/19','2015/03/20','2015/03/21','2015/03/22','2015/03/23','2015/03/24','2015/03/25','2015/03/26']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            name:'%',
+                            type :'value',
+                            splitNumber:5,
+                            min: 0,
+                            max: 95,
+                            splitNumber:5
+                        }
+                    ],
+                    color:['rgba(51,204,255,1)'],
+                    series : [
+                        {
+                            name:"",
+                            type:"line",
+                            itemStyle:{
+                                normal:{
+                                    areaStyle:{type:'default',color:'rgba(51,204,255,0.1)'},
+                                    lineStyle:{color:'rgba(51,204,255,0.9)'}
+                                },
+
+                            },
+                            data:[88,83,84,{value:90,itemStyle:{normal:{color:'orange'}}},85,83,82,82,85,{value:88,itemStyle:{normal:{color:'orange'}}},86,84,82,81,84,86,83,84,88,85,83,82,82,85,87,86,84,82,81,84]
+                        }
+                    ]
+                };
+
+                // 为echarts对象加载数据
+                myChart_tonghualeixing.setOption(option_tonghualeixing);
+            }
+    );
+
+
+
+
+
+</script>
